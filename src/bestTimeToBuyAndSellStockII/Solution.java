@@ -13,4 +13,32 @@ public class Solution {
         }
         return profit;
     }
+
+    public int bestRuntimeSolution(int[] prices) {
+        int n = prices.length;
+        boolean bought = false;
+        int boughtprice = 0;
+        int total = 0;
+        for( int i = 0 ; i < n ; i++ ) {
+            if( bought) {
+                if( i == n - 1) {
+                    total += prices[i] - boughtprice;
+                    bought = false;
+                } else {
+                    if( prices[i+1] < prices[i]) {
+                        total += prices[i] - boughtprice;
+                        bought = false;
+                    }
+                }
+            } else {
+                if( i < n-1 ) {
+                    if( prices[i+1] > prices[i]) {
+                        bought = true;
+                        boughtprice = prices[i];
+                    }
+                }
+            }
+        }
+        return total;
+    }
 }
