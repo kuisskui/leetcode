@@ -1,5 +1,8 @@
 package validSudoku;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Solution {
 
     final private String url = "https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/769/";
@@ -81,4 +84,36 @@ public class Solution {
         }
     }
 
+    public boolean BestMemorySolution(char[][] board) {
+        Set<Character>[] rows = new HashSet[9];
+        Set<Character>[] cols = new HashSet[9];
+        Set<Character>[] grids = new HashSet[9];
+
+        for(int i = 0; i < 9; i++)
+        {
+            rows[i] = new HashSet<>();
+            cols[i] = new HashSet<>();
+            grids[i] = new HashSet<>();
+        }
+
+        for(int r = 0; r < 9; r++)
+        {
+            for(int c = 0; c < 9; c++)
+            {
+                if(board[r][c] == '.')
+                    continue;
+
+                int g = (r/3) * 3 + (c/3);
+
+                if(rows[r].contains(board[r][c]) || cols[c].contains(board[r][c]) || grids[g].contains(board[r][c]))
+                    return false;
+
+                rows[r].add(board[r][c]);
+                cols[c].add(board[r][c]);
+                grids[g].add(board[r][c]);
+            }
+        }
+
+        return true;
+    }
 }
