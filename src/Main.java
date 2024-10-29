@@ -1,10 +1,10 @@
-import stringToInteger.Solution;
+import implementStrStr.Solution;
 
 public class Main {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.myAtoi("42"));
+        System.out.println(solution.strStr("leetcode", "leeto"));
     }
 
 }
