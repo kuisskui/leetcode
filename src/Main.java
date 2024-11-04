@@ -1,10 +1,11 @@
-import implementStrStr.Solution;
+import longestCommonPrefix.Solution;
 
 public class Main {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.strStr("leetcode", "leeto"));
+        String[] strs = {"flower", "flower"};
+        System.out.println(solution.longestCommonPrefix(strs));
     }
 
 }
