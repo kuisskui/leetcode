@@ -19,6 +19,9 @@ class TreeNode {
 
 
 class Solution {
+
+    final private String url = "https://leetcode.com/explore/interview/card/top-interview-questions-easy/94/trees/555/";
+
     public int maxDepth(TreeNode root) {
         if (root == null) {
             return 0;
